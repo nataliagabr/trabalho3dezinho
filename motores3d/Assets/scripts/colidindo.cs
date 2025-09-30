@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class colidindo : MonoBehaviour
 {
+    public int valor = 1; 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Item coletado!");
-            Destroy(gameObject); 
+            GameManager.AddScore(valor); 
+            Destroy(gameObject);        
         }
     }
 }
+
