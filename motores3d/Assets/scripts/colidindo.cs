@@ -7,7 +7,7 @@ public class colidindo : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.AddScore(valor); 
+            GameManager.instance.AddScore(1);
             Destroy(gameObject);        
         }
     }
