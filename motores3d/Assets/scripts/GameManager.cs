@@ -3,14 +3,13 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance; // referência única (singleton)
+    public static GameManager instance;
 
     public int score = 0;
     public TextMeshProUGUI pontuacaoTexto;
 
     private void Awake()
     {
-        // Garante que só existe um GameManager
         if (instance == null)
         {
             instance = this;
@@ -21,10 +20,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AtualizarPontuacao();
+    }
+
+    // 🔹 STATIC para funcionar com GameManager.instance.AddScore()
     public void AddScore(int value)
     {
         score += value;
-        Debug.Log("Pontuação: " + score);
-        pontuacaoTexto.text = "Pontuação: " + score;
+        AtualizarPontuacao();
+    }
+
+    void AtualizarPontuacao()
+    {
+        if (pontuacaoTexto != null)
+        {
+            pontuacaoTexto.text = "Pontuação: " + score.ToString();
+        }
     }
 }
