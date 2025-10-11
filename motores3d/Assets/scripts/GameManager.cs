@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         AtualizarPontuacao();
     }
 
-    // 🔹 STATIC para funcionar com GameManager.instance.AddScore()
+    
     public void AddScore(int value)
     {
         score += value;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         if (pontuacaoTexto != null)
         {
-            pontuacaoTexto.text = "Pontuação: " + score.ToString();
+            pontuacaoTexto.text = "Colete as maças: " + score.ToString();
         }
     }
 }
